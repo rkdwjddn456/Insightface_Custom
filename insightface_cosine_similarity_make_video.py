@@ -34,7 +34,6 @@ if __name__ == "__main__":
     img_dir2 = r"/database/kjw/ree1/save_crop"  # test path
     video_output_path = r'/database/kjw/lg_video/output_video.avi'
     feat1_list = []
-    feat2_list = []
 
     similarities = []
 
@@ -66,6 +65,8 @@ if __name__ == "__main__":
     for (current_path_1, current_path_2, img1) in zip(current_paths_1, current_paths_2, img_list1):
         feat1 = inference(args.weight, args.network, os.path.join(current_path_1, 'image0.jpg'))
         feat1_list.append(feat1)
+
+        feat2_list = []
 
         for img_path in img_list2:
             feat2 = inference(args.weight, args.network, img_path)  
